@@ -1,0 +1,14 @@
+{% extends 'todo_main/common/header.html' %}
+{% load static %}
+{% block main %}
+<section id="blog">
+    <div class="container">
+        <form method="POST" class="post-form">
+            {%csrf_token%}
+
+            {{form.as_p}}<br>
+            <input type="submit" class="save btn btn-default" value="Update"></input>
+        </form>
+    </div>
+</section>
+{% endblock main %}
