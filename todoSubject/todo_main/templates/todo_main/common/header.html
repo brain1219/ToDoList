@@ -101,7 +101,7 @@
                 $.ajax({
                     type: "POST",
                     url: "{% url 'todo_board:todo_board_is_non_complete' %}",
-                    data: {'data': pk, 'csrfmiddlewaretoken': {{ csrf_token }}'},
+                    data: {'data': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
                     dataType: "json",
                     success: function(response){
                         console.log("성공");

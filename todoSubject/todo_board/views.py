@@ -72,11 +72,12 @@ def check_post(request):
     template_name = 'todo_board/todo_board_success.html'
     if request.method == "POST":
         form = TodoForm(request.POST)
-        if form.is_valid():
-            todo = form.save(commit=False)
-            todo.todo_save()
-            message = "일정을 추가하였습니다. "
-            return render(request, template_name, {"message": message})
+        if str(request.path).split("/board/")[1].split("/")[0] == "insert":
+            if form.is_valid():
+                todo = form.save(commit=False)
+                todo.todo_save()
+                message = "일정을 추가하였습니다. "
+                return render(request, template_name, {"message": message})
     elif str(request.path).split("/board/")[1].split("/")[0] == "is_complete":
         pk = request.POST['data']
         return_value = checkbox_event(pk, True)

@@ -38,9 +38,9 @@
             {% with end_date="마감일 없음" %}
                 {% for list in todo_list_endDate_complete %}
                     {% if list.end_date == None %}
-                        <div class="list-group-item list-group-item-success" div_pk={{list.priority}}><input type="checkbox" pk={{list.no}} name="complete" value={{list.title}}> <a href="{% url 'todo_board:todo_board_detail' pk=list.no %}">{{list.title}}</a><p>{{end_date}}</p></div>
+                        <div class="list-group-item list-group-item-success" div_pk={{list.priority}}><input type="checkbox" checked pk={{list.no}} name="complete" value={{list.title}}> <a href="{% url 'todo_board:todo_board_detail' pk=list.no %}">{{list.title}}</a><p>{{end_date}}</p></div>
                     {% else %}
-                        <div class="list-group-item list-group-item-success" div_pk={{list.priority}}><input type="checkbox" pk={{list.no}} name="complete" value={{list.title}}> <a href="{% url 'todo_board:todo_board_detail' pk=list.no %}">{{list.title}}</a><p>{{list.end_date}}</p></div>
+                        <div class="list-group-item list-group-item-success" div_pk={{list.priority}}><input type="checkbox" checked pk={{list.no}} name="complete" value={{list.title}}> <a href="{% url 'todo_board:todo_board_detail' pk=list.no %}">{{list.title}}</a><p>{{list.end_date}}</p></div>
                     {% endif %}
                 {% endfor %}
             {% endwith %}
@@ -49,12 +49,9 @@
 </div>
 
 <div class="col-md-12">
-      <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_insert' %} '">
-            일정추가
-      </button>
-      <button type="button" class="btn btn-primary" onclick="prioirty_save()">
-            *우선순위 저장
-      </button><br>
+      <button type="button" class="btn btn-primary" onclick="location.href='{% url 'todo_board:todo_board_insert' %} '"> 일정추가 </button>
+      <button type="button" class="btn btn-primary" onclick="prioirty_save()"> *우선순위 저장 </button>
+      <br>
       <p>* 마우스 드래그로 우선순위 변경이 가능합니다</p>
 </div>
 
