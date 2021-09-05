@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'todo_app',
         'USER': 'root',
-        'PASSWORD': '1234',
+        'PASSWORD': 'Jerry99naver',
         'HOST': '127.0.0.1',
         'POST': '3306',
     }
